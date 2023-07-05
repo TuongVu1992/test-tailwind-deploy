@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/create-demo-login/static/css/main.eab35d4b.css",
+    "main.js": "/create-demo-login/static/js/main.6982c88f.js",
+    "index.html": "/create-demo-login/index.html",
+    "main.eab35d4b.css.map": "/create-demo-login/static/css/main.eab35d4b.css.map",
+    "main.6982c88f.js.map": "/create-demo-login/static/js/main.6982c88f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eab35d4b.css",
+    "static/js/main.6982c88f.js"
+  ]
+}
