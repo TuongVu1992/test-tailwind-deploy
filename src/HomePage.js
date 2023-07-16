@@ -11,6 +11,7 @@ function HomePage() {
 
   // check the input that the user input information via check submit button 
   const checkSubmiteButton = () =>{
+    navigate("/StockPage");
     if (UserEmail === "theTuongVu@gmail.com" && PassWord === "testingStuff") {
      console.log("it is correct");
    } else{

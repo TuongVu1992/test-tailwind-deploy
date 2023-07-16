@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios'; 
 import { DataGrid}  from '@mui/x-data-grid';
@@ -6,7 +7,7 @@ import Box from '@mui/material/Box';
 import InputSearch from './components/InputSearch';
 import DeleteButton from './components/DeleteButton';
 
-const StockPage = () => {
+function StockPage () {
 
   const[post, setpost] = useState([])
   const[Search, setSearch] = useState("")
@@ -44,20 +45,21 @@ const StockPage = () => {
    }
 
   //  // set search button to do something when best enter 
-  // const searchKey = (event) => {
-  //   if (event.key === "Enter") {
-  //     console.log(Search);
-  //   }
-  // };
+  const searchKey = (event) => {
+    if (event.key === "Enter") {
+      console.log(Search);
+    }
+  };
 
    useEffect(() => {
     setstockCounter(post.map(({stockSymbols}) => stockSymbols));
     }, [post])
     
   return (
-    <div className =''>
-     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
-      <div className =' bg-light-blue-100'>
+    <div>
+     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/> 
+      {/* <div className =' bg-light-blue-100'> */}
+      <div>
       <div className= " grid h-screen place-content-center bg-white mx-auto max-w-4xl" style={{paddingBottom:"300px"}}>
        <div className ='mx-auto'>
         <h1  style={{ marginBottom : "20px"}}> Investment Analyzer Tool</h1>
@@ -82,7 +84,7 @@ const StockPage = () => {
           onSelectionModelChange={(ids) => {
            setSelectedRows(ids);
         }}
-        /> 
+        />  
       </Box> 
         </div> 
        </div> 

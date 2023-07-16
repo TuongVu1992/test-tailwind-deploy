@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path = "/test-tailwind-deploy" element = {<HomePage />}/>
         <Route path = "/ForgotPassWordPage" element = {<ForgotPassWordPage />}/> 
-        <Route path = "/StockPage" element = {<StockPage/>}/>
+        <Route path = "/StockPage" element = {<StockPage />}/>
       </Routes>
     </Router>
   );
