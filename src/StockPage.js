@@ -6,6 +6,7 @@ import { DataGrid}  from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 import InputSearch from './components/InputSearch';
 import DeleteButton from './components/DeleteButton';
+import { useParams } from 'react-router-dom';
 
 function StockPage () {
 
@@ -14,7 +15,10 @@ function StockPage () {
 
   const[selectRows, setSelectedRows] = useState([])
   const[stockCounter, setstockCounter] = useState([])
-  
+  const { encryptedUserId } = useParams();
+
+  console.log(encryptedUserId);
+
   const columns =[
     { field: 'id', headerName: 'ID', width: 80 },
     { field: 'stockSymbols', headerName: 'StockSymbols', width: 110 },
@@ -55,41 +59,59 @@ function StockPage () {
     setstockCounter(post.map(({stockSymbols}) => stockSymbols));
     }, [post])
     
+
+    const checkEncryp = () => {
+        if (encryptedUserId === "esndihnaidniashdiasihdi" ){
+            return true
+        } else{
+            return false
+        }
+      };
+
+      const theRest = () =>{
+        return(
+            <div>
+            <div className= " grid h-screen place-content-center bg-white mx-auto max-w-4xl" style={{paddingBottom:"300px"}}>
+                <div className ='mx-auto'>
+                    <h1  style={{ marginBottom : "20px"}}> Investment Analyzer Tool</h1>
+                </div>
+                <div className = "flex items-center">
+                <InputSearch
+                    Search = {Search}
+                    setSearch={setSearch}
+                    searchStuff = {selectStuff}
+                />
+                <DeleteButton
+                onClick ={handleDeleteRow}
+                />
+            </div>
+            <div className= " mt-4">
+                <Box sx={{height: 400 , minWidth: 800}}> 
+                <DataGrid 
+                    rows = {post}
+                    pageSize={5}
+                    columns={columns}
+                    checkboxSelection
+                    onSelectionModelChange={(ids) => {
+                    setSelectedRows(ids);
+                }}
+                />  
+                </Box> 
+                </div>  
+            </div>
+         </div>
+
+        )
+      } 
+
   return (
+
     <div>
-     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/> 
-      {/* <div className =' bg-light-blue-100'> */}
-      <div>
-      <div className= " grid h-screen place-content-center bg-white mx-auto max-w-4xl" style={{paddingBottom:"300px"}}>
-       <div className ='mx-auto'>
-        <h1  style={{ marginBottom : "20px"}}> Investment Analyzer Tool</h1>
-       </div>
-       <div className = "flex items-center">
-      <InputSearch
-         Search = {Search}
-         setSearch={setSearch}
-         searchStuff = {selectStuff}
-      />
-      <DeleteButton
-        onClick ={handleDeleteRow}
-      />
-       </div>
-        <div className= " mt-4">
-        <Box sx={{height: 400 , minWidth: 800}}> 
-        <DataGrid 
-          rows = {post}
-          pageSize={5}
-          columns={columns}
-          checkboxSelection
-          onSelectionModelChange={(ids) => {
-           setSelectedRows(ids);
-        }}
-        />  
-      </Box> 
-        </div> 
-       </div> 
+      <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/> 
+        <div>
+        {checkEncryp() && theRest()}
       </div>
-    </div>
+       </div>   
   );
 }
 

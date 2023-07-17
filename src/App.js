@@ -4,13 +4,13 @@ import HomePage from './HomePage';
 import ForgotPassWordPage from './ForgotPassWordPage';
 import StockPage from './StockPage';
 
-function App() {
+const App=()=> {
   return(
     <Router>
       <Routes>
         <Route path = "/test-tailwind-deploy" element = {<HomePage />}/>
         <Route path = "/ForgotPassWordPage" element = {<ForgotPassWordPage />}/> 
-        <Route path = "/StockPage" element = {<StockPage />}/>
+        <Route path = "/StockPage/:encryptedUserId" element = {<StockPage />}/>
       </Routes>
     </Router>
   );

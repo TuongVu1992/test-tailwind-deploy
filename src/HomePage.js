@@ -3,15 +3,23 @@ import React from 'react';
 import {Button} from "@material-tailwind/react";
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import { useLocation } from 'react-router';
+import App from "./App.js";
 
 function HomePage() {
   const[UserEmail, setUserEmail] = useState("");
   const[PassWord, setPassWord] = useState("");
-  let navigate = useNavigate("");
+  // const location = useLocation();
+  // const queryParams = new URLSearchParams(location.search);
+  // const jetParam = queryParams.get('jet');
+  let navigate = useNavigate();
 
   // check the input that the user input information via check submit button 
   const checkSubmiteButton = () =>{
-    navigate("/StockPage");
+    
+    const encryptedUserId = 'esndihnaidniashdiasihdi'; // Replace with the actual encrypted identifier from the server
+    navigate(`/Stockpage/${encryptedUserId}`);
+    
     if (UserEmail === "theTuongVu@gmail.com" && PassWord === "testingStuff") {
      console.log("it is correct");
    } else{
