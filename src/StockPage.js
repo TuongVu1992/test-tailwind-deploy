@@ -7,6 +7,19 @@ import Box from '@mui/material/Box';
 import InputSearch from './components/InputSearch';
 import DeleteButton from './components/DeleteButton';
 import { useParams } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import CssBaseline from '@mui/material/CssBaseline';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 function StockPage () {
 
@@ -68,10 +81,15 @@ function StockPage () {
         }
       };
 
+    const appBarStyle = {
+        backgroundColor: 'green',
+      };
+  
+
       const theRest = () =>{
         return(
             <div>
-            <div className= " grid h-screen place-content-center bg-white mx-auto max-w-4xl" style={{paddingBottom:"300px"}}>
+            <div className= " grid h-screen place-content-center mx-auto max-w-4xl" style={{paddingBottom:"300px"}}>
                 <div className ='mx-auto'>
                     <h1  style={{ marginBottom : "20px"}}> Investment Analyzer Tool</h1>
                 </div>
@@ -105,13 +123,27 @@ function StockPage () {
       } 
 
   return (
+    // <div>
+    //   <Box sx = {{display: 'flex'}}>
+    //     <AppBar component="nav"></AppBar>
+    //   </Box>
 
+    //   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/> 
+    //     <div>
+    //     { theRest()}
+    //   </div>
+    //     <h1> testing this stuff</h1>
+    //    </div> 
     <div>
-      <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/> 
-        <div>
-        {checkEncryp() && theRest()}
-      </div>
-       </div>   
+      <AppBar position="static" style = {{backgroundColor: '#8DBFC5'}}>
+        <Toolbar>
+          <Typography variant="h6">Stock Analysis</Typography>
+        </Toolbar>
+      </AppBar>
+
+      { theRest()}
+      {/* Your other content goes here */}
+    </div>  
   );
 }
 
