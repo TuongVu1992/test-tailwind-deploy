@@ -20,6 +20,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import DropDown from './components/DropDown';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SideBarMode from './components/SideBarMode';
+import TableCusMode from './components/TableCusMode';
+
 
 function StockPage () {
 
@@ -116,6 +121,14 @@ function StockPage () {
                 />  
                 </Box> 
                 </div>  
+                {/* <div style={{ height: 400, width: '100%' }}>
+                  <DataGrid
+                    rows={dataRows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                  />
+                </div> */}
             </div>
          </div>
 
@@ -140,8 +153,12 @@ function StockPage () {
           <Typography variant="h6">Stock Analysis</Typography>
         </Toolbar>
       </AppBar>
+      <div>
+      <DropDown /> { theRest()}
 
-      { theRest()}
+      <SideBarMode />
+      <TableCusMode/>
+      </div>
       {/* Your other content goes here */}
     </div>  
   );
